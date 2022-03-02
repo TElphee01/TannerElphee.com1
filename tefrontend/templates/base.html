@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}tannerelphee.com{% endblock title %}</title>
+    <title>{% block title %}TannerElphee.com{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" Django Web Application developed by Tanner Elphee for use as a personal website.">
     <meta name="author" content="Tanner Elphee">
@@ -15,7 +15,11 @@
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Your stuff: Third-party CSS libraries go here -->{% compress css %}
+    <!-- Your stuff: Third-party CSS libraries go here -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- Social media icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% compress css %}
     <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">{% endcompress %}
     {% endblock %}
@@ -26,6 +30,8 @@
       <!-- Bootstrap JS -->
       <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <!-- Your stuff: Third-party javascript libraries go here -->
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 
       <!-- place project specific Javascript in this file -->{% compress js %}
       <script defer src="{% static 'js/project.js' %}"></script>{% endcompress %}
@@ -33,24 +39,52 @@
     {% endblock javascript %}
 
   </head>
+  <style>
+    .scroll-to-top {
+    z-index: 1042;
+    right: 1rem;
+    bottom: 1rem;
+    display: none;
+  }
+  .scroll-to-top a {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: rgba(33, 37, 41, 0.5);
+    line-height: 3.1rem;
+  }
+  .fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
 
-  <body>
-
-    <div class="mb-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
+  .bannerBackground{
+      background: url("../static/images/backgroundBanner1.jpg") 50% 0 repeat;
+      background: url("{% static 'tefrontend/backgroundBanner1.jpg' %}") 50% 0 repeat;
+      opacity: 60%;
+    }
+  </style>
+  <body id="page-top">
+    <div>
+      <nav class="navbar navbar-expand-md navbar-light bannerBackground">
         <div class="container-fluid">
           <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">tannerelphee.com</a>
+          <a class="navbar-brand" href="{% url 'home' %}">TannerElphee.com</a>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:list' %}">Blog</a>
               </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
@@ -62,51 +96,54 @@
                   <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
                 </li>
               {% else %}
-                {% if ACCOUNT_ALLOW_REGISTRATION %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
-              </li>
-              {% endif %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Account" %}</a>
                 </li>
               {% endif %}
             </ul>
           </div>
         </div>
       </nav>
-
     </div>
+  <div id="#" class="d-flex">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% block content_video %}
+    <!-- template pages here -->
+    {% endblock content_video %}
+  </div>
+  <div>
+    {% block content %}
+    <!-- template pages here -->
+    {% endblock content %}
+  </div>
 
-    <div class="container">
-
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
-
-    {% block modal %}{% endblock modal %}
+      <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+      <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+      </div>
+      {% block modal %}{% endblock modal %}
 
     {% block inline_javascript %}
     {% comment %}
     Script tags with only code, no src (defer by default). To run
-    with a "defer" so that you run inline code:
+    with a "defer" so that you run run inline code:
     <script>
       window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
     </script>
     {% endcomment %}
     {% endblock inline_javascript %}
   </body>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </html>

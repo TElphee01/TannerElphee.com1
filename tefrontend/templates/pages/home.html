@@ -1,2 +1,1095 @@
 {% extends "base.html" %}
-<h1>Test</h1>
+{% load static %}
+{% block content_video %}
+<!-- Section 1 - Video container -->
+<style>
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: ruby;
+}
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+
+/* HUGE block of Social media icon styles*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+
+body {
+  background:hsl(213, 89%, 14%);
+
+  margin:0 auto;
+  text-align:center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  line-height: 187.5%;
+  letter-spacing: 0.01em;
+}
+
+/*--------------------------------------------------------------
+	10. Social
+--------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
+  .basr-social-share {
+    top: 70%;
+    position: absolute;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .basr-social-share {
+    position:absolute;
+    left:0;
+    right:70%;
+    width: 25%;
+    display: block;
+    text-align:center;
+    padding:0 auto;
+    margin:5em auto;
+    top: 80%;
+  }
+}
+.social ul {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.social ul li {
+  border: 5px solid #512e12;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li {
+    border-width: 4px;
+    width: 45px;
+    height: 45px;
+  }
+}
+.social ul li:not(:last-child) {
+  margin-right: 10px;
+}
+.social ul li:before {
+  content: '';
+  border-radius: 50%;
+  -webkit-shadow: inset 0 0px 3px rgba(149, 90, 42, 0.28), 0px 0px 0px 2px rgba(149, 90, 42, 0.28);
+  -ms-box-shadow: inset 0 0px 3px rgba(149, 90, 42, 0.28), 0px 0px 0px 2px rgba(149, 90, 42, 0.28);
+  box-shadow: inset 0 0px 3px rgba(149, 90, 42, 0.28), 0px 0px 0px 2px rgba(149, 90, 42, 0.28);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  opacity: 0.35;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li:before {
+    width: 43px;
+    height: 43px;
+  }
+}
+.social ul li:hover {
+  border-color: #a33629;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.social ul li:hover:before {
+  -webkit-shadow: inset 0 0px 3px rgba(163, 54, 41, 0.28), 0px 0px 0px 2px rgba(163, 54, 41, 0.28);
+  -ms-box-shadow: inset 0 0px 3px rgba(163, 54, 41, 0.28), 0px 0px 0px 2px rgba(163, 54, 41, 0.28);
+  box-shadow: inset 0 0px 3px rgba(163, 54, 41, 0.28), 0px 0px 0px 2px rgba(163, 54, 41, 0.28);
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.social ul li:hover i {
+  color: #d66557;
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #a33629;
+  -webkit-fill-color: #a33629;
+  text-shadow: 1px 0px 20px #a33629;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.social ul li a {
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li a {
+    background-size: cover;
+    top: -5px;
+    left: -5px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+  }
+}
+.social ul li a:before {
+  content: '';
+  background-image: url('https://img.picload.org/image/dcocwcga/border-social-hover.png');
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 45px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li a:before {
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+}
+.social ul li a:after {
+  content: '';
+  background-image: url('https://img.picload.org/image/dcocwcgd/border-social.png');
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 45px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li a:after {
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+}
+.social ul li a:hover:before {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) rotate(360deg);
+  -ms-transform: translate(-50%, -50%) rotate(360deg);
+  transform: translate(-50%, -50%) rotate(360deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.social ul li a:hover:after {
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) rotate(360deg);
+  -ms-transform: translate(-50%, -50%) rotate(360deg);
+  transform: translate(-50%, -50%) rotate(360deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.social ul li a i {
+  color: #ffead3;
+  font-size: 23px;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #ffead3;
+  -webkit-fill-color: #ffead3;
+  text-shadow: 1px 0px 20px #ffead3;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media only screen and (max-width: 480px) {
+  .social ul li a i {
+    font-size: 16px;
+  }
+}
+.social ul li a i.fa-envelope {
+  font-size: 14px;
+  top: 48%;
+}
+.k2t-footer.dark-style .social li a,
+.dark-style .social li a {
+  color: #fff;
+}
+.k2t-footer.dark-style .social li a:hover,
+.dark-style .social li a:hover {
+  color: #fff;
+}
+.basr-social-share.social li:hover a {
+  color: #898989;
+}
+.basr-social-share.social li a {
+  border-width: 0;
+  color: #cccccc;
+}
+.basr-social-share.social li a:hover {
+  color: #898989;
+}
+.basr-social-share.social li a span {
+  display: none;
+}
+#telpheeAvatar {
+  width: 15rem;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 480px) {
+    #telpheeAvatar {
+    width: 5rem;
+    border-radius: 50%;
+  }
+}
+</style>
+<div class="datavideo-container">
+    <div class="row" style="contain: content;">
+        <video class="video" playsinline="playsinline" muted="muted" preload="true" autoplay = "autoplay" loop = "loop">
+            <source src="{% static 'video/data.mp4' %}" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+        <div class="centered">
+          <img id="telpheeAvatar" src="../../static/images/TE1.jpg" alt="Tanner Elphee Avatar">
+          <h2 style="font-size: 3vw; margin-left: 10px;" class="page-section-heading text-center text-warning mb-0">Improving life with technology</h2>
+        </div>
+        <div class="basr-social-share social">
+          <ul class="">
+              <li>
+                  <a class="linkedin" href="https://www.linkedin.com/in/tannerelphee/" target="_blank">
+                      <i class="fa fa-linkedin"></i>
+                      <span>Linkedin</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="github" href="https://github.com/TElphee01" target="_blank">
+                      <i class="fa fa-github"></i>
+                      <span>Github</span>
+                  </a>
+              </li>                  <li>
+                  <a class="twitter" href="https://twitter.com/Techie_TElphee" target="">
+                      <i class="fa fa-twitter"></i>
+                      <span>Twitter</span>
+                  </a>
+            </li>
+            <li>
+              <a class="facebook" href="https://www.facebook.com/tanner.elphee/" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                  <span>Facebook</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</div>
+{% endblock content_video %}
+
+{% block content %}
+<!-- Section 2 - App Info with Swiper-->
+<style>
+  .section2Background{
+    background: url("../../static/images/section2BackgroundImage.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    padding: 15px;
+  }
+
+  .swiper {
+    width: auto;
+    height: 150px;
+  }
+  .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+
+        .swiper-slide img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: cover;
+        }
+  .video-container {
+      display: block;
+  }
+</style>
+<div class="row section2Background">
+  <div class="row" style="height: 35vh; font-family: courier new, courier, monospace;color: azure;align-content: center;">
+      <h4><strong>Custom web app written in <a style="color:gold;" href="https://www.djangoproject.com/" target="_blank">Django/Python</a> and capable of API interaction</strong></h4>
+      <h4><strong>Containerized using Docker-Compose with a <a style="color:#326791" href="https://www.postgresql.org/" target="_blank">PostgreSQL</a> backend</strong></h4>
+      <h4><strong>Static media served from <a style="color:#FF9901" href="https://aws.amazon.com/" target="_blank">AWS </a></strong><strong><a style="color: #E15343" href="https://aws.amazon.com/s3/" target="_blank">S3</a></strong></h4>
+    </div>
+      <div class="col-sm-12" style="padding: 20px;">
+          <!-- Swiper -->
+          <h3 style="margin-top: 4%; font-family: courier new, courier, monospace;color: azure;align-content: center;"><strong>Technologies making TannerElphee.com possible</strong></h3>
+          <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="../../static/images/swiper/django.png" alt="Django logo" href="https://www.djangoproject.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/vscode11.png" alt="Visual Studio Code logo" href="https://code.visualstudio.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/dockerLogo.jpg" alt="Docker Compose logo" href="https://www.docker.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/bootstrap4Logo.jpg" alt="Bootstrap4 logo" href="https://getbootstrap.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/javaScript.jpg" alt="Javascript logo" href="https://www.javascript.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/heroku.jpg" alt="Heroku logo" href="https://www.heroku.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/chrome.jpg" alt="Google Chrome logo" href="https://www.google.com/chrome/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/python.png" alt="Python logo" href="https://www.python.org/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/appleLogo.jpg" alt="Apple logo" href="https://www.apple.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/postgres.png" alt="Postgres logo" href="https://www.postgresql.org/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/WindowsLogo.jpg" alt="Windows Logo" href="https://www.microsoft.com/en-us/windows?r=1" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/celeryLogo.jpg" alt="Celery logo" href="https://docs.celeryproject.org/en/stable/getting-started/introduction.html" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/Github.jpg" alt="Github logo" href="https://github.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/GoogleDriveLogo.jpg" alt="Google Drive logo" href="https://www.google.com/drive/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/MicrosoftLogo.jpg" alt="Microsoft logo" href="https://www.microsoft.com/en-us/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/cookiecutterLogo.jpg" alt="Cookiecutter logo" href="https://cookiecutter.readthedocs.io/en/1.7.2/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/awsLogo.jpg" alt="AWS logo" href="https://aws.amazon.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/redisLogo.jpg" alt="Redis logo" href="https://redis.io/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/pylintLogo.jpg" alt="Pylint logo" href="https://pylint.org/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/sphinxLogo.jpg" alt="Sphinx logo" href="https://www.sphinx-doc.org/en/master/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/firefox.jpg" alt="Firefox logo" href="https://www.mozilla.org/en-US/firefox/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/gitLogo.jpg" alt="Git logo" href="https://git-scm.com/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/webpackLogo.jpg" alt="Webpack logo" href="https://webpack.js.org/" target="_blank"></div>
+                  <div class="swiper-slide"><img src="../../static/images/swiper/jqueryLogo.jpg" alt="Jquery logo" href="https://jquery.com/" target="_blank"></div>
+              </div>
+          </div>
+      </div>
+</div>
+
+<!-- Section 3 - My journey -->
+<style>
+    .section3Background{
+    background: url("../../static/images/section3Background.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    padding: 15px;
+    height: 195vh;
+  }
+
+  .divider-custom {
+                margin: 1.25rem 0 1.5rem;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+    .divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 7rem;
+    height: 0.25rem;
+    background-color: #2c3e50;
+    border-radius: 1rem;
+    border-color: #2c3e50 !important;
+    }
+    .divider-custom .divider-custom-line:first-child {
+    margin-right: 1rem;
+    }
+    .divider-custom .divider-custom-line:last-child {
+    margin-left: 1rem;
+    }
+    .divider-custom .divider-custom-icon {
+    color: #2c3e50 !important;
+    font-size: 2rem;
+    }
+    .divider-custom.divider-light .divider-custom-line {
+    background-color: #fff;
+    }
+    .divider-custom.divider-light .divider-custom-icon {
+    color: #fff !important;
+    }
+</style>
+<div class="section3Background">
+  <!-- Icon Divider-->
+  <div class="divider-custom divider-light">
+    <div class="divider-custom-line" style="background: white;"></div>
+    <div class="divider-custom-icon"><h2 style="color: white;"><strong>My journey</strong></h2></div>
+    <div class="divider-custom-line" style="background: white;"></div>
+  </div>
+  <div class="container" style="background: white;">
+    <!-- Federated auto -->
+    <div class="row">
+      <div class="col-md-2">
+        <img src="../../static/images/FedAuto.jpg" alt="Federated Auto Parts" class="img-fluid">
+      </div>
+      <div class="col-md-8" style="margin: 12px;">
+        <div id="itemHeaderContainer" style="text-align: left;">
+          <h3><a href="http://www.federatedautoparts.com/" target="_target" style="color: #37c">Federated Auto Parts</a></h3>
+          <h4>Web Developer, since February 2021</h4>
+          <h5><strong>Staunton, VA</strong></h5>
+        </div>
+        <p class="card-text" style="text-align: left;">
+          As a Web Developer with Federated I work primarily on <a href="http://www.federatedlink.com" target="_target">FedLink</a>, our exclusive Web Parts Catalog.
+          When not implementing new features, I'm constantly thinking about how to best serve our customers. Hired February 2021.
+          <br><br>
+          My greatest accomplishments include
+          <br>
+          <ul style="text-align: left;">
+            <li>Developing API JSON conversion functions using Python.</li>
+            <li>Creating a part number organizational tool utilizing ElasticSearch indexes that organize 3-million+ records.</li>
+            <li>Writing a simple API fully deployed to production.</li>
+            <li>Assisting initiation of AWS continuous deployment model.</li>
+            <li>Automating unit tests using Selenium in Python or C#.</li>
+            <li>Working with MySQL stored procedures almost daily.</li>
+            <li>Setting up multiple projects on local IIS servers.</li>
+          </ul>
+          Other exciting tools like: Tabulator.js, Driver.js, Grunt, Webpack, Sass bundler/compilers, ASP.net 4.7.2, and others!
+        </p>
+      </div>
+    </div>
+    <!-- JMU -->
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-2">
+        <img src="../../static/images/JMU-Logo-RGB-vert-purple.jpg" alt="JMU Logo" class="img-fluid">
+      </div>
+      <div class="col-md-8" style="margin: 12px;">
+        <div id="itemHeaderContainer" style="text-align: left;">
+          <h3><a href="https://www.jmu.edu/index.shtml" target="_blank" style="color: #37c">James Madison Unversity</a></h3>
+          <h4>B.B.A. in Computer Information Systems, earned December 2020</h4>
+          <h5><strong>Harrisonburg, VA</strong></h5>
+        </div>
+        <p class="card-text" style="text-align: left;">
+          My time at JMU presented unimaginable opportunities, connections, and personal growth. As a transfer student, I spent 2 years at JMU and wasted no time completing my 60 credit hours. My first trip to campus as a student,
+          I walked directly into COB 300, the College of Businesses notoriously difficult set of proficiency courses that determines just how bad students want to be successful.
+          I never gave up. The various student organizations helped my discover my love for technology and how it can improve lives.
+          <ul style="text-align: left;">
+            <li>Several friends and I started the <a href="https://www.linkedin.com/company/madison-algorithmic-research/about/" target="_blank">Madison Algorithmic Research (MAR)</a> student org group where we studied the real world impacts of quantitative abstractions.</li>
+            <li>I hosted a presentation on Technical Analysis with the <a href="https://beinvolved.jmu.edu/organization/fma" target="_blank">Financial Management Association</a>.</li>
+            <li>While apart of the <a href="https://beinvolved.jmu.edu/organization/ais" target="_blank">Association for Information Systems</a> I learned more about technology career paths and certifications.</li>
+          </ul>
+          I would not trade these experiences for the world.
+        </p>
+      </div>
+    </div>
+    <!-- PVCC -->
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-2">
+        <img src="../../static/images/pvccLogo.jpg" alt="PVCC Logo" class="img-fluid">
+      </div>
+      <div class="col-md-8" style="margin: 12px;">
+        <div id="itemHeaderContainer" style="text-align: left; margin-top: 15px;">
+          <h3><a href="https://www.pvcc.edu/" target="_blank" style="color: #37c">Piedmont Virginia Community College</a></h3>
+          <h4>A.S. in Business Administration, earned December 2018</h4>
+          <h5><strong>Charlottesville, VA</strong></h5>
+        </div>
+        <p class="card-text" style="text-align: left;">
+          My educational journey started at PVCC where my initial interests in computer technology, public speaking, and investing were forged.
+          Compared to my tiny hometown or Staunton, Charlottesville is home for people from all walks of life. PVCC highlighted the power of diversity and inclusion.
+          While attending PVCC I also worked full time. My class schedule of Tuesday Thursday only led to many early mornings to class, and the long, dark rides back home across Afton mountain.
+          <br>
+          I also took a few transfer courses at <a href="https://www.brcc.edu/" target="_blank">Blue Ridge Community College</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4 - Certifications -->
+<style>
+  .section4Background{
+    background: url("../../static/images/section4Background.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    padding: 15px;
+  }
+</style>
+<div id="section4Background" class="section4Background container">
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line" style="background: white;"></div>
+      <div class="divider-custom-icon"><h2 style="color: white;"><strong>Certifications</strong></h2></div>
+      <div class="divider-custom-line" style="background: white;"></div>
+    </div>
+  <div class="row" style="margin-bottom: 25px;">
+    <div class="col-md-12 col-lg-8 offset-lg-2">
+      <!-- CompTIA cert -->
+      <div class="card">
+        <div class="card-body">
+          <img class="img-fluid" src="../../static/images/Aplus Logo Certified CE.jpg" alt="CompTIA+ Certified" style="height:180px;"/>
+          <h4 class="card-title"> <a href="https://www.comptia.org/certifications/a" target="_target">CompTIA A+</a></h4>
+          <p class="card-text">
+            During the initial lockdown of the pandemic I took it upon myself to attain the foundational CompTIA A+ certification to jumpstart my IT career.
+            <br>
+            It took about 5 weeks of full-time study and over 48 hours of online courses, but I passed both tests on my first try.
+          </p>
+        </div>
+      </div>
+      <!-- Excel Specialist -->
+      <div class="card" style="margin-top: 15px; margin-bottom: 15px;">
+        <div class="card-body">
+          <img class="img-fluid" src="../../static/images/MS2016.jpg" alt="Microsoft Office Specialist 2016 Certified" style="height:135px;"/>
+          <h4 class="card-title"> <a href="https://docs.microsoft.com/en-us/learn/certifications/mos-excel-2016/" target="_target">2016 Specialist</a></h4>
+          <p class="card-text">
+            While at JMU, I passed the proctured Microsoft Excel Specialist certification exam. This certification applies to the 2016 version of Microsoft Excel.
+            If you've used Excel, you know the functional ability of Excel hasn't changed much over the years. I worked with Macros, financial models, and graphical tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5 - Personal interests -->
+<style>
+  .img-fluid{
+    height: 150px;
+  }
+
+  .section5Background{
+    background: url("../../static/images/section5Background.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    padding: 15px;
+  }
+
+    .page-section .page-section-heading {
+        font-size: 2.25rem;
+        line-height: 2rem;
+    }
+    @media (min-width: 992px) {
+        .page-section .page-section-heading {
+            font-size: 3rem;
+            line-height: 2.5rem;
+        }
+    }
+    .modal-open {
+            overflow: hidden;
+            }
+            .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+            }
+
+            .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+            }
+
+            .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 0.5rem;
+            pointer-events: none;
+            }
+            .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-out;
+            transform: translate(0, -50px);
+            }
+            @media (prefers-reduced-motion: reduce) {
+            .modal.fade .modal-dialog {
+                transition: none;
+            }
+            }
+            .modal.show .modal-dialog {
+            transform: none;
+            }
+            .modal.modal-static .modal-dialog {
+            transform: scale(1.02);
+            }
+
+            .modal-dialog-scrollable {
+            display: flex;
+            max-height: calc(100% - 1rem);
+            }
+            .modal-dialog-scrollable .modal-content {
+            max-height: calc(100vh - 1rem);
+            overflow: hidden;
+            }
+            .modal-dialog-scrollable .modal-header,
+            .modal-dialog-scrollable .modal-footer {
+            flex-shrink: 0;
+            }
+            .modal-dialog-scrollable .modal-body {
+            overflow-y: auto;
+            }
+
+            .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            min-height: calc(100% - 1rem);
+            }
+            .modal-dialog-centered::before {
+            display: block;
+            height: calc(100vh - 1rem);
+            height: -webkit-min-content;
+            height: -moz-min-content;
+            height: min-content;
+            content: "";
+            }
+            .modal-dialog-centered.modal-dialog-scrollable {
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            }
+            .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+            max-height: none;
+            }
+            .modal-dialog-centered.modal-dialog-scrollable::before {
+            content: none;
+            }
+
+            .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 0 solid rgba(0, 0, 0, 0.2);
+            border-radius: 0.75rem;
+            outline: 0;
+            }
+
+            .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            }
+            .modal-backdrop.fade {
+            opacity: 0;
+            }
+            .modal-backdrop.show {
+            opacity: 0.5;
+            }
+
+            .modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 1rem 1rem;
+            border-bottom: 0 solid #dee2e6;
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            }
+            .modal-header .close {
+            padding: 1rem 1rem;
+            margin: -1rem -1rem -1rem auto;
+            }
+
+            .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+            }
+
+            .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 4rem 1rem;
+            }
+
+            .modal-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 4rem 1rem-0.25rem;
+            border-top: 0 solid #dee2e6;
+            border-bottom-right-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+            }
+            .modal-footer > * {
+            margin: 0.25rem;
+            }
+
+            .modal-scrollbar-measure {
+            position: absolute;
+            top: -9999px;
+            width: 50px;
+            height: 50px;
+            overflow: scroll;
+            }
+
+            @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 500px;
+                margin: 1.75rem auto;
+            }
+
+            .modal-dialog-scrollable {
+                max-height: calc(100% - 3.5rem);
+            }
+            .modal-dialog-scrollable .modal-content {
+                max-height: calc(100vh - 3.5rem);
+            }
+
+            .modal-dialog-centered {
+                min-height: calc(100% - 3.5rem);
+            }
+            .modal-dialog-centered::before {
+                height: calc(100vh - 3.5rem);
+                height: -webkit-min-content;
+                height: -moz-min-content;
+                height: min-content;
+            }
+
+            .modal-sm {
+                max-width: 300px;
+            }
+            }
+            @media (min-width: 992px) {
+            .modal-lg,
+            .modal-xl {
+                max-width: 800px;
+            }
+            }
+            @media (min-width: 1200px) {
+            .modal-xl {
+                max-width: 1140px;
+            }
+            }
+
+            .portfolio .portfolio-item {
+            cursor: pointer;
+            position: relative;
+            display: block;
+            max-width: 25rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            }
+            .portfolio .portfolio-item .portfolio-item-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.2s ease-in-out;
+            opacity: 0;
+            background-color: rgba(53, 26, 188, 0.9);
+            }
+            .portfolio .portfolio-item .portfolio-item-caption:hover {
+            opacity: 1;
+            }
+            .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
+            font-size: 1.5rem;
+            }
+
+            .portfolio-modal .portfolio-modal-title {
+            font-size: 2.25rem;
+            line-height: 2rem;
+            }
+            @media (min-width: 992px) {
+            .portfolio-modal .portfolio-modal-title {
+                font-size: 3rem;
+                line-height: 2.5rem;
+            }
+            }
+            .portfolio-modal .close {
+            position: absolute;
+            z-index: 1;
+            right: 1.5rem;
+            top: 1rem;
+            font-size: 3rem;
+            line-height: 3rem;
+            color: #042145;
+            opacity: 1;
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+            }
+            .btn-primary {
+            color: #fff;
+            background-color:#042145;
+            border-color:#042145;
+            }
+            .btn-primary:hover {
+            color: #fff;
+            background-color: #042145;
+            border-color: #042145;
+            }
+            .btn-primary:focus, .btn-primary.focus {
+            color: #fff;
+            background-color: #042145;
+            border-color: #042145;
+            box-shadow: 0 0 0 0.2rem rgba(60, 198, 171, 0.5);
+            }
+            .btn-primary.disabled, .btn-primary:disabled {
+            color: #fff;
+            background-color: #1abc9c;
+            border-color: #1abc9c;
+            }
+            .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+            color: #fff;
+            background-color: #042145;
+            border-color: #042145;
+            }
+            .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(60, 198, 171, 0.5);
+            }
+
+            .textClass1 {
+            color: black;
+            font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 60%;
+            }
+            @media (min-width: 1200px) {
+                .compTIAIMG {
+                    margin-left: 20px;
+                }
+            }
+</style>
+<div class="row section5Background">
+  <div id="whoIsTitleBlock" style="margin-top: 25px;">
+      <!-- Portfolio Section Heading-->
+      <h2 class="page-section-heading text-center text-warning mb-3">Personal interests</h2>
+  </div>
+  <!-- Portfolio Modals-->
+  <!-- Portfolio Section-->
+  <div class="container">
+    <!-- Portfolio Grid Items-->
+    <div class="row">
+        <!-- Portfolio Item 1-->
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto center" data-toggle="modal" data-target="#portfolioModal1">
+                <img class="img-fluid" src="../../static/images/MountainBiking1.jpg" alt="Tanner Elphee Mountain Biking" />
+            </div>
+        </div>
+        <!-- Portfolio Item 2-->
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto center" data-toggle="modal" data-target="#portfolioModal2">
+                <img class="img-fluid" src="../../static/images/Programming1.png" alt="Tanner Elphee Software Engineer"/>
+            </div>
+        </div>
+        <!-- Portfolio Item 3-->
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto center" data-toggle="modal" data-target="#portfolioModal3">
+                <img class="img-fluid" src="../../static/images/Drumming1.jpg" alt="Tanner Elphee Drummer/Musician"/>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 1-->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-times"></i></span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Mountian Biking</h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa fa-bicycle"></i></div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <img src="../../static/images/FedAuto.jpg" alt="Tanner Elphee Mountian Biking" class="img-fluid">
+                            <!-- Portfolio Modal - Text-->
+                            <p class="textClass1">
+                                I love mountian biking! In my hometown we have some nice trails close by that I practice for the big climbs.
+                            </p>
+                            <button class="btn btn-primary" data-dismiss="modal">
+                                <i class="fa fa-times fa-fw"></i>
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 2-->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-times"></i></span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Software engineer</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa fa-code"></i></div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="textClass1 mb-5" style="text-align: start;">
+                              I enjoy coding because it's one of those activities that basically has no limits. I'm constantly progressing, getting better, and rising to the challange in front of me.
+                              Had you asked me 10 years ago, I never would have thought I'd make a living writing code. But over the years my various interests kept pulling me back to syntactic thinking and logical concepts.
+                            </p>
+                            <button class="btn btn-primary" data-dismiss="modal">
+                                <i class="fa fa-times fa-fw"></i>
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 3-->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><i class="fa fa-times"></i></span>
+          </button>
+          <div class="modal-body text-center">
+              <div class="container">
+                  <div class="row justify-content-center">
+                      <div class="col-lg-8">
+                          <!-- Portfolio Modal - Title-->
+                          <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Kickin' the drums</h2>
+                          <!-- Icon Divider
+                          <div class="divider-custom">
+                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-icon"><i class="fa fa-drum"></i></div>
+                              <div class="divider-custom-line"></div>
+                          </div> -->
+                          <!-- Portfolio Modal - Text-->
+                          <p class="textClass1 mb-5" style="text-align: start;">
+                            From a very young age I felt the beat in my soul and played percussion instruments my entire life.
+                            In middle school I played the drum set for the jazz band. In highschool I marched with the big bassdrum and performed in many competitions.
+                            When I can get the fellas' together, I can still feel the beat in my soul.
+
+                          </p>
+                          <button class="btn btn-primary" data-dismiss="modal">
+                              <i class="fa fa-times fa-fw"></i>
+                              Close Window
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6 - TradingView chart -->
+<style>
+  .section6Background{
+    background: url("../../static/images/section6Background.jpg") 50% 0 no-repeat;
+    background-size: cover;
+    min-width: 100%;
+  }
+</style>
+<div id="section6Background" class="section6Background container" style="display: none;">
+  <div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-12" style="padding: 20px;">
+      <!-- <div class="col-md-10" style="margin-top: 15px;text-align: left;margin-left: 160px;"> -->
+        <h2 style="text-align: center;">Nearly 10 years participating in the S&P500 using <a href="https://www.investopedia.com/terms/t/technicalanalysis.asp" target="_blank" style="color: #37c"> Technical Analysis </a></h2>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container" style="margin-top: 25px;">
+        <div id="tradingview_4cff6"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/CME_MINI-ES1!/" rel="noopener" target="_blank"><span class="blue-text">ES1! Chart</span></a> by TradingView</div>
+        <!-- TradingView Widget END -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -281,3 +281,7 @@ vendors.js
 .env
 .envs/*
 !.envs/.local/
+
+#Do not source control media
+tefrontend/static/images
+tefrontend/static/video

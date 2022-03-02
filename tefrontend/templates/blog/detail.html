@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}
+    {% include "includes/navbar.html" with active="blog" %}
+{% endblock %}
+
+{% block content %}
+    <article class="blog__container">
+        <section class="blog__header">
+            <h3 class="blog__title blog__title--large">{{ blog_post.title }}</h3>
+            <p class="blog__footer">
+                {{ blog_post.pub_date|date }}
+            </p>
+        </section>
+        <section class="blog__text">{{ blog_post.text|safe }}</section>
+    </article>
+{% endblock %}
