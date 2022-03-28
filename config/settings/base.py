@@ -333,7 +333,7 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
-OCIALACCOUNT_PROVIDERS = {
+SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "SCOPE": [
             "profile",
