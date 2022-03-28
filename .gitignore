@@ -280,7 +280,8 @@ vendors.js
 *.min.js
 .env
 .envs/*
-!.envs/.local/
+##Pushed initially for retention, but removed once info added
+.envs/.local/
 
 #Do not source control media
 tefrontend/static/images
